@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+	<ui:composition template="templates/layout.xhtml">
+		<ui:define name="content">
+			<div class="container">
+				<div class="pagetop">
+					<h1 class="pull-left">
+						<h:outputText value="Cadastro de Bens" />
+					</h1>
+					<br />
+				</div>
+				<div>
+					<h:form>
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Digite o ID para pesquisa" />
+							<h:inputText value="#{BeanB.b.id}" />
+							<h:commandButton value="Pesquisar" action="#{BeanB.pesquisar}" />
+						</h:panelGrid>
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

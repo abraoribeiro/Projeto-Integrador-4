@@ -1,0 +1,9 @@
+#corpo{
+	border: 3px;
+	width: 200px;
+	height: 150px;
+	margin-left: 200px;
+}
+body{
+	background-color: blue;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputLabel value="Cadastro de Bens" />
+			</f:facet>
+			<h:outputLabel value="ID"/>
+			<h:outputLabel value="#{BeanB.b.id}"/>
+			<h:outputLabel value="Nome" />
+			<h:inputText value="#{BeanB.b.nome}" />   
+			<h:outputLabel value="Tipo" />
+			<h:selectOneMenu value="#{BeanB.b.tipo}">
+				<f:selectItem itemValue="MAQUINA" itemLabel="MAQUINA" />
+				<f:selectItem itemValue="VEICULO" itemLabel="VEICULO" />
+				<f:selectItem itemValue="INSTALACOES" itemLabel="INSTALACOES" />
+				<f:selectItem itemValue="MOVEIS" itemLabel="MOVEIS" />
+				<f:selectItem itemValue="COMPUTADORES" itemLabel="COMPUTADORES" />
+				<f:selectItem itemValue="IMOVEL" itemLabel="IMOVEL" />
+				<f:selectItem itemValue="TERRENO" itemLabel="TERRENO" />
+			</h:selectOneMenu>
+			<h:outputLabel value="Data de Aquisição " />
+			<h:inputText value="#{BeanB.b.data_aquisicao}" />
+			<h:selectOneRadio value="#{BeanB.b.novo_usado}" >
+				<f:selectItem itemValue="novo" itemLabel="Novo" />
+				<f:selectItem itemValue="usado" itemLabel="Usado" />
+			</h:selectOneRadio><br />
+			<h:outputLabel value="Tempo de uso"/>
+			<h:inputText value="#{BeanB.b.tempo_uso}"/>
+			<h:outputLabel value="Valor de Compra"/>
+			<h:inputText value="#{BeanB.b.valor_compra}"/>
+			<h:outputLabel value="Valor Residual"/>
+			<h:inputText value="#{BeanB.b.valor_residual}"/>
+			<h:outputLabel value="Taxa (opcional)"/>
+			<h:inputText value="#{BeanB.b.taxa}"/>
+			
+			<h:commandButton value="Salvar" action="#{BeanB.actionUpdate}"/>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

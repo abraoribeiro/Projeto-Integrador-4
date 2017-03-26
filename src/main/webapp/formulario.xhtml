@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+	<ui:composition template="templates/layout.xhtml">
+		<ui:define name="content">
+			<div class="container">
+				<div class="pagetop">
+					<h1 class="pull-left">
+						<h:outputText value="Cadastro de Bens" />
+					</h1>
+					<br />
+				</div>
+				<div>
+					<h:form class="form-horizontal">
+						<div class="form-group">
+							<h:outputLabel value="Nome" class="col-sm-2 control-label" />
+							<div class="col-sm-3">
+								<h:inputText value="#{BeanB.b.nome}" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel value="Tipo" class="col-sm-2 control-label" />
+							<div class="col-sm-3">
+								<h:selectOneMenu value="#{BeanB.b.tipo}">
+									<f:selectItem itemValue="MAQUINA" itemLabel="MAQUINA" />
+									<f:selectItem itemValue="VEICULO" itemLabel="VEICULO" />
+									<f:selectItem itemValue="INSTALACOES" itemLabel="INSTALACOES" />
+									<f:selectItem itemValue="MOVEIS" itemLabel="MOVEIS" />
+									<f:selectItem itemValue="COMPUTADORES" itemLabel="COMPUTADORES" />
+									<f:selectItem itemValue="IMOVEL" itemLabel="IMOVEL" />
+									<f:selectItem itemValue="TERRENO" itemLabel="TERRENO" />
+								</h:selectOneMenu>
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel value="Data de Aquisição"
+								class="col-sm-2 control-label" />
+							<div class="col-sm-3">
+								<h:inputText value="#{BeanB.b.data_aquisicao}"
+									class="form-control" placeholder="00/00/0000">
+									<f:convertDateTime pattern="dd/MM/yyyy" />
+								</h:inputText>
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel value="Estado do Bem"
+								class="col-sm-2 control-label" />
+							<div class="col-sm-3">
+								<h:selectOneRadio value="#{BeanB.b.novo_usado}">
+									<f:selectItem itemValue="novo" itemLabel="Novo" />
+									<f:selectItem itemValue="usado" itemLabel="Usado" />
+								</h:selectOneRadio>
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel value="Tempo de uso (meses)"
+								class="col-sm-2 control-label" />
+							<div class="col-sm-3">
+								<h:inputText value="#{BeanB.b.tempo_uso}" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel value="Valor de Compra"
+								class="col-sm-2 control-label" />
+							<div class="col-sm-3">
+								<h:inputText value="#{BeanB.b.valor_compra}"
+									class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel value="Valor Residual (%)"
+								class="col-sm-2 control-label" />
+							<div class="col-sm-3">
+								<h:inputText value="#{BeanB.b.valor_residual}"
+									class="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel value="Turnos diários"
+								class="col-sm-2 control-label" />
+							<div class="col-sm-3">
+								<h:selectOneMenu value="#{BeanB.b.turnos}">
+									<f:selectItem itemLabel="1" itemValue="1" />
+									<f:selectItem itemLabel="2" itemValue="2" />
+									<f:selectItem itemLabel="3" itemValue="3" />
+								</h:selectOneMenu>
+							</div>
+						</div>
+						<div class="form-group">
+							<h:outputLabel value=""
+								class="col-sm-2 control-label" />
+							<div class="col-sm-3">
+								<h:commandButton value="Cadastrar" action="#{BeanB.cadastro}"  class="btn btn-success"/>
+							</div>
+						</div>
+					</h:form>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

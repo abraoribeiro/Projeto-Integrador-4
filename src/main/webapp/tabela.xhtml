@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+<div align="center">
+	<h:form>
+		<h:dataTable value="#{BeanB.listagem}" var="obj" border="1">
+			<f:facet name="header">
+				<h:outputLabel value="Controle de Bens" />
+			</f:facet>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="ID" />
+				</f:facet>
+				<h:outputLabel value="#{obj.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Nome" />
+				</f:facet>
+				<h:outputLabel value="#{obj.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Tipo" />
+				</f:facet>
+				<h:outputLabel value="#{obj.tipo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Valor de Compra" />
+				</f:facet>
+				<h:outputLabel value="#{obj.valor_compra}" >
+					<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+				</h:outputLabel>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Data de aquisição" />
+				</f:facet>
+				<h:outputLabel value="#{obj.data_aquisicao}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Vida Util" />
+				</f:facet>
+				<h:outputLabel value="#{obj.vidaUtil}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Status" />
+				</f:facet>
+				<h:outputLabel value="Em Uso" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Cadastro em" />
+				</f:facet>
+				<h:outputLabel value="#{obj.data_hoje}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Opcoes" />
+				</f:facet>
+				<h:commandLink value="Apagar" action="#{BeanB.actionApagar}">
+					<f:setPropertyActionListener value="#{obj}" target="#{BeanB.b}" />
+				</h:commandLink><br/>
+				<f:facet name="header">
+					<h:outputLabel value="Baixa" />
+				</f:facet>
+				<h:commandLink value="Baixa" action="#{BeanB.actionPesquisar}" >
+					<f:setPropertyActionListener value="#{obj}" target="#{BeanB.b}" />
+				</h:commandLink><br/>
+				<f:facet name="header">
+					<h:outputLabel value="Editar" />
+				</f:facet>
+				<h:commandLink value="Editar" action="#{BeanB.cadastro}" >
+					<f:setPropertyActionListener value="#{obj}" target="#{BeanB.b}" />
+				</h:commandLink>
+				</h:column>
+				
+		</h:dataTable>
+		<h:commandLink value="Menu" action="menuAdm"/>
+		
+	</h:form>
+	</div>
+</h:body>
+</html>

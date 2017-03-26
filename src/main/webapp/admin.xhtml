@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+	<ui:composition template="templates/layout.xhtml">
+		<ui:define name="content">
+			<div class="container">
+				<div class="pagetop">
+					<h1 class="pull-left">
+						<h:outputText value="Bens cadastrados" />
+					</h1>
+					<div class="pull-right">
+						<h:form>
+						<h:commandLink value="Calcular" class="btn btn-primary"
+								action="tela_pesquisa" />
+								<h:outputText value="  "/>
+							<h:commandLink value="Cadastrar Bem" class="btn btn-primary"
+								action="#{BeanB.cadastrar}" />
+						</h:form>
+					</div>
+					<br />
+				</div>
+				<div>
+
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#home"
+							aria-controls="home" role="tab" data-toggle="tab">Bens ativos</a></li>
+						<li role="presentation"><a href="#profile"
+							aria-controls="profile" role="tab" data-toggle="tab">Bens
+								inativos</a></li>
+					</ul>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="home">
+							<h:form>
+								<h:dataTable value="#{BeanB.listagem}" var="obj"
+									class="table table-hover">
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="ID" />
+										</f:facet>
+										<h:outputLabel value="#{obj.id}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="Nome" />
+										</f:facet>
+										<h:outputLabel value="#{obj.nome}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="Tipo" />
+										</f:facet>
+										<h:outputLabel value="#{obj.tipo}" />
+									</h:column>
+
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="Data de Aquisição" />
+										</f:facet>
+										<h:outputLabel value="#{obj.data_aquisicao}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="Vida Util" />
+										</f:facet>
+										<h:outputLabel value="#{obj.vidaUtil}" >
+											<f:convertNumber minFractionDigits="1" maxFractionDigits="1" />
+										</h:outputLabel>
+									</h:column>
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="Estado" />
+										</f:facet>
+										<h:outputLabel value="#{obj.novo_usado}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="Tempo de uso" />
+										</f:facet>
+										<h:outputLabel value="#{obj.tempo_uso}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="Cadastro em" />
+										</f:facet>
+										<h:outputLabel value="#{obj.data_hoje}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="Valor na Compra" />
+										</f:facet>
+										<h:outputLabel value="#{obj.valor_compra}" >
+											<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+										</h:outputLabel>
+									</h:column>
+									<h:column>
+										<f:facet name="header">
+											<h:outputLabel value="Opcoes"  style="width: 158px;"/>
+										</f:facet>
+										<h:commandLink value="Editar" action="formulario" class="btn btn-default btn-xs">
+											<f:setPropertyActionListener value="#{obj}"
+												target="#{BeanB.b}" />
+										</h:commandLink>
+										<h:outputText value=" " />
+										<h:commandLink value="Apagar" action="#{BeanB.actionApagar}" class="btn btn-danger btn-xs">
+											<f:setPropertyActionListener value="#{obj}"
+												target="#{BeanB.b}" />
+										</h:commandLink>
+										<h:outputText value=" " />
+										<h:commandLink value="Baixa" action="#{BeanB.baixa}" class="btn btn-info btn-xs">
+											<f:setPropertyActionListener value="#{obj}"
+												target="#{BeanB.b}" />
+										</h:commandLink>
+										<h:commandLink value="G/P" action="gp" class="btn btn-default btn-xs">
+											<f:setPropertyActionListener value="#{obj}"
+												target="#{BeanB.b}" />
+										</h:commandLink>
+										
+									</h:column>
+								</h:dataTable>
+							</h:form>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="profile">...</div>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
